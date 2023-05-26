@@ -1,0 +1,26 @@
+#!/bin/bash
+
+wget "$(curl -s https://nodejs.org/en/download | grep -oP '"([^"]*\.tar\.xz)"[^>]*' | sed 's/"//g' | sed -n '1p')"
+
+tar -xf node*.tar.xz
+
+rm -rf node*.tar.xz
+
+mv node-* node
+
+cd node
+
+mkdir -p /usr/local/node
+
+cp -R * /usr/local/node
+
+export PATH=/usr/local/node/bin:$PATH
+
+echo "versiones:"
+echo "node"
+node -v
+echo "npm"
+npm -v
+
+cd ..
+rm -rf node/
