@@ -15,7 +15,7 @@ mkdir -p /usr/local/node
 cp -R * /usr/local/node
 
 path="export PATH=/usr/local/node/bin:$PATH"
-echo $path >> >> ~/.bashrc
+echo $path >> ~/.bashrc
 source ~/.bashrc
 
 echo "versiones:"
