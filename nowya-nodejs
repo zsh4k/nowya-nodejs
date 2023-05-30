@@ -1,6 +1,20 @@
 #!/bin/bash
 
-wget "$(curl -s https://nodejs.org/en/download | grep -oP '"([^"]*\.tar\.xz)"[^>]*' | sed 's/"//g' | sed -n '1p')"
+architecture=$(uname -m)
+
+case $architecture in
+    "x86_64")
+        ARQ="1p"
+        ;;
+    "aarch64")
+        ARQ="3p"
+        ;;
+    *)
+        echo "Arquitectura desconocida: $architecture"
+        ;;
+esac
+
+wget "$(curl -s https://nodejs.org/en/download | grep -oP '"([^"]*\.tar\.xz)"[^>]*' | sed 's/"//g' | sed -n $ARQ)"
 
 tar -xf node*.tar.xz
 
