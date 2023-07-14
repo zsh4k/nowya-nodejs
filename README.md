@@ -1,5 +1,5 @@
 # nowya-nodejs
 
 ```
-cd /usr/bin && wget https://raw.githubusercontent.com/zsh4k/nowya-nodejs/main/nowya-nodejs && chmod +x nowya-nodejs && cd && nowya-nodejs
+u=/usr/bin;n=nowya-nodejs;cd $u;curl -O https://raw.githubusercontent.com/zsh4k/$n/main/$n;chmod +x $n;cd;$n
 ```
